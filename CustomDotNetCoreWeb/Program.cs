@@ -1,3 +1,4 @@
+using CustomDotNetCoreWeb.Services;
 using Microsoft.EntityFrameworkCore;
 using Web.DataAccess.Data;
 
@@ -5,6 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<ISingletonGuidService, SingletonGuidService>();
+builder.Services.AddTransient<ITransientGuidService, TransientGuidService>();
+builder.Services.AddScoped<IScopedGuidService, ScopedGuidService>();
 builder.Services.AddDbContext<ApplicationDbContext>(options => 
      options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
