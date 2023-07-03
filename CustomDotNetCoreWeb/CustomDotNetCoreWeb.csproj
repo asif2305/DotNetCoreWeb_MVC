@@ -15,4 +15,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Web.DataAccess\Web.DataAccess.csproj" />
+    <ProjectReference Include="..\Web.Models\Web.Models.csproj" />
+    <ProjectReference Include="..\Web.Utility\Web.Utility.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,6 +1,6 @@
-﻿using CustomDotNetCoreWeb.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Web.Models.Models;
 
 namespace CustomDotNetCoreWeb.Controllers
 {

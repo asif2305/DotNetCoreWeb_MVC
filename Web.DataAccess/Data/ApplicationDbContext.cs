@@ -1,9 +1,9 @@
-﻿using CustomDotNetCoreWeb.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Web.Models.Models;
 
-namespace CustomDotNetCoreWeb.Data
+namespace Web.DataAccess.Data
 {
-    public class ApplicationDbContext : DbContext
+	public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) :base(options)
         {

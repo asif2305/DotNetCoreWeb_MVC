@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomDotNetCoreWeb", "CustomDotNetCoreWeb\CustomDotNetCoreWeb.csproj", "{5710FF77-1FCE-4DA8-A107-C48B992E8BDD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B85796D6-E716-4B14-9ECE-E1E98EE1AFD8} = {B85796D6-E716-4B14-9ECE-E1E98EE1AFD8}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplicationRazor", "WebApplicationRazor\WebApplicationRazor.csproj", "{B85796D6-E716-4B14-9ECE-E1E98EE1AFD8}"
 EndProject

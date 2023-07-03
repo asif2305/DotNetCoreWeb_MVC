@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace CustomDotNetCoreWeb.Models
+namespace Web.Models.Models
 {
     public class Category
     {

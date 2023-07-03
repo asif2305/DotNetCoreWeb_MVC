@@ -4,10 +4,10 @@
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace WebApplicationRazor.Migrations
+namespace Web.DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class AddCategoryTableToTb : Migration
+    public partial class AddCategoryToDbAndSeedTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

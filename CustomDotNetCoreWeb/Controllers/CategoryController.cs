@@ -1,6 +1,6 @@
-﻿using CustomDotNetCoreWeb.Data;
-using CustomDotNetCoreWeb.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Web.DataAccess.Data;
+using Web.Models.Models;
 
 namespace CustomDotNetCoreWeb.Controllers
 {
