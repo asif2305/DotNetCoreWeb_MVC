@@ -37,7 +37,7 @@ namespace CustomDotNetCoreWeb.Controllers
 			messages.Append($"Scoped 2 :{_scopedGuidService2.GetGuid()}\n\n\n");
 			messages.Append($"Singleton 1 :{_singletonGuidService1.GetGuid()}\n");
 			messages.Append($"Singleton 2 :{_singletonGuidService2.GetGuid()}\n\n\n");
-			return Ok( messages.ToString() );
+			return Ok(messages.ToString() );
 		}
 
         public IActionResult Privacy()

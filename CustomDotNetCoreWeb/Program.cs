@@ -1,6 +1,8 @@
 using CustomDotNetCoreWeb.Services;
 using Microsoft.EntityFrameworkCore;
 using Web.DataAccess.Data;
+using Web.DataAccess.Repository;
+using Web.DataAccess.Repository.IRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +13,7 @@ builder.Services.AddTransient<ITransientGuidService, TransientGuidService>();
 builder.Services.AddScoped<IScopedGuidService, ScopedGuidService>();
 builder.Services.AddDbContext<ApplicationDbContext>(options => 
      options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
