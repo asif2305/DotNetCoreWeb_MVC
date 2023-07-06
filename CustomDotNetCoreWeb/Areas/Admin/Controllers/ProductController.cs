@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Web.DataAccess.Data;
 using Web.DataAccess.Repository.IRepository;
 using Web.Models.Models;
+using Web.Models.ViewModels;
 
 namespace CustomDotNetCoreWeb.Areas.Admin.Controllers
 {
@@ -17,25 +19,48 @@ namespace CustomDotNetCoreWeb.Areas.Admin.Controllers
         public IActionResult Index()
         {
             List<Product> objProductList = _unitOfWork.Product.GetAll().ToList();
-            return View(objProductList);
+  			return View(objProductList);
         }
         public IActionResult Create()
         {
-            return View();
+
+            ProductVM productVM = new ProductVM
+			{ 
+              CategoryList  = _unitOfWork.Category.GetAll().Select(
+			   u => new SelectListItem
+			   {
+				   Text = u.Name,
+				   Value = u.Id.ToString()
+			   }),
+              Product = new Product()
+            };
+			return View(productVM);
         }
         [HttpPost]
-        public IActionResult Create(Product obj)
+        public IActionResult Create(ProductVM productVM)
         {
      
             if (ModelState.IsValid)
             {
    
-                _unitOfWork.Product.Add(obj);
+                _unitOfWork.Product.Add(productVM.Product);
                 _unitOfWork.Save();
                 TempData["success"] = "Category created sucessfully";
                 return RedirectToAction("Index", "Product");
             }
-            return View();
+            else
+            {
+
+				productVM.CategoryList = _unitOfWork.Category.GetAll().Select(
+                  u => new SelectListItem
+                  {
+                      Text = u.Name,
+                      Value = u.Id.ToString()
+                  });
+					
+				return View(productVM);
+			}
+           
 
 
         }

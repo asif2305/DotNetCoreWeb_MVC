@@ -35,6 +35,7 @@ namespace Web.DataAccess.Data
 				   Price50 = 60,
 				   Price100 = 40,
 				   CategoryId = 1,
+				   ImageUrl = ""
 			   }, new Product
 			   {
 				   Id = 2,
@@ -47,6 +48,7 @@ namespace Web.DataAccess.Data
 				   Price50 = 55,
 				   Price100 = 30,
 				   CategoryId = 2,
+				   ImageUrl = ""
 			   }, new Product
 			   {
 				   Id = 3,
@@ -59,6 +61,7 @@ namespace Web.DataAccess.Data
 				   Price50 = 60,
 				   Price100 = 40,
 				   CategoryId = 3,
+				   ImageUrl = ""
 			   }, new Product
 			   {
 				   Id = 4,
@@ -71,6 +74,7 @@ namespace Web.DataAccess.Data
 				   Price50 = 52,
 				   Price100 = 46,
 				   CategoryId = 2,
+				   ImageUrl = ""
 			   }, new Product
 			   {
 				   Id = 5,
@@ -82,7 +86,8 @@ namespace Web.DataAccess.Data
 				   Price = 65,
 				   Price50 = 60,
 				   Price100 = 40,
-				   CategoryId = 3   
+				   CategoryId = 3,
+				   ImageUrl = ""
 			   },
 				new Product
 				{
@@ -96,6 +101,7 @@ namespace Web.DataAccess.Data
 					Price50 = 80,
 					Price100 = 20,
 					CategoryId= 2,
+					ImageUrl =""
 				}
 
 			  );
