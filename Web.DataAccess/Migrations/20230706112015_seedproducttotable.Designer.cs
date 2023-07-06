@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Web.DataAccess.Data;
 
@@ -10,9 +11,11 @@ using Web.DataAccess.Data;
 namespace Web.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230706112015_seedproducttotable")]
+    partial class seedproducttotable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,9 +77,6 @@ namespace Web.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -103,8 +103,6 @@ namespace Web.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
-
                     b.ToTable("Products");
 
                     b.HasData(
@@ -112,7 +110,6 @@ namespace Web.DataAccess.Migrations
                         {
                             Id = 1,
                             Author = "Abby Muscles",
-                            CategoryId = 1,
                             Description = "This is first description",
                             ISBN = "WS102212555",
                             ListPrice = 70.0,
@@ -125,7 +122,6 @@ namespace Web.DataAccess.Migrations
                         {
                             Id = 2,
                             Author = "Abby Muscles_2",
-                            CategoryId = 2,
                             Description = "This is first description_2",
                             ISBN = "WS102212598",
                             ListPrice = 50.0,
@@ -138,7 +134,6 @@ namespace Web.DataAccess.Migrations
                         {
                             Id = 3,
                             Author = "Abby Muscles",
-                            CategoryId = 3,
                             Description = "This is first description_3",
                             ISBN = "WS102212563",
                             ListPrice = 70.0,
@@ -151,7 +146,6 @@ namespace Web.DataAccess.Migrations
                         {
                             Id = 4,
                             Author = "Abby Muscles_4",
-                            CategoryId = 2,
                             Description = "This is first description_4",
                             ISBN = "WS102212750",
                             ListPrice = 60.0,
@@ -164,7 +158,6 @@ namespace Web.DataAccess.Migrations
                         {
                             Id = 5,
                             Author = "Abby Muscles_5",
-                            CategoryId = 3,
                             Description = "This is first description_5",
                             ISBN = "WS102212555",
                             ListPrice = 70.0,
@@ -177,7 +170,6 @@ namespace Web.DataAccess.Migrations
                         {
                             Id = 6,
                             Author = "Abby Muscles",
-                            CategoryId = 2,
                             Description = "This is first description_6",
                             ISBN = "WS1022125023",
                             ListPrice = 85.0,
@@ -186,17 +178,6 @@ namespace Web.DataAccess.Migrations
                             Price50 = 80.0,
                             Title = "Cotton Candy_6"
                         });
-                });
-
-            modelBuilder.Entity("Web.Models.Models.Product", b =>
-                {
-                    b.HasOne("Web.Models.Models.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
                 });
 #pragma warning restore 612, 618
         }
