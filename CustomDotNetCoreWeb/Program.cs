@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Web.DataAccess.Data;
 using Web.DataAccess.Repository;
 using Web.DataAccess.Repository.IRepository;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,8 @@ builder.Services.AddTransient<ITransientGuidService, TransientGuidService>();
 builder.Services.AddScoped<IScopedGuidService, ScopedGuidService>();
 builder.Services.AddDbContext<ApplicationDbContext>(options => 
      options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 var app = builder.Build();

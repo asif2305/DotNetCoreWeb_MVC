@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Web.Models.Models;
 
 namespace Web.DataAccess.Data
 {
-	public class ApplicationDbContext : DbContext
+	public class ApplicationDbContext : IdentityDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) :base(options)
         {
@@ -16,6 +17,7 @@ namespace Web.DataAccess.Data
 		// to seed the data by default
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+			base.OnModelCreating(modelBuilder); // needed for identity configuration
             modelBuilder.Entity<Category>().HasData(
                 new Category { Id = 1, Name = "Action", DisplayOrder = 1 },
                 new Category { Id = 2, Name = "SciFi", DisplayOrder = 2 },
