@@ -1,14 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.IdentityModel.Tokens;
+using System.Data;
 using Web.DataAccess.Data;
 using Web.DataAccess.Repository.IRepository;
 using Web.Models.Models;
 using Web.Models.ViewModels;
+using Web.Utility;
 
 namespace CustomDotNetCoreWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class ProductController : Controller
     {
         // private readonly ApplicationDbContext _db;
